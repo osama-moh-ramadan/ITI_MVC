@@ -1,0 +1,40 @@
+﻿@page
+
+@model Day2.Models.Department
+
+<h2>Deps' Instructors: @Model.Name</h2>
+
+@if (Model.Instructor == null || !Model.Instructor.Any())
+{
+    <p>cannot find Instructors in this Dep</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Salary</th>
+                <th>Hiring Date</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var instructor in Model.Instructor)
+            {
+                <tr>
+                    <td>@instructor.Name</td>
+                    <td>@instructor.Address</td>
+                    <td>@instructor.Salary</td>
+                    <td>@instructor.HireDate?.ToShortDateString()</td>
+                    <td>
+                        <a asp-controller="Instructors" asp-action="Details" asp-route-id="@instructor.Id" class="btn btn-primary">
+                            Detials
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

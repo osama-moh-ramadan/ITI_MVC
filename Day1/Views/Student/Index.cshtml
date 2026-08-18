@@ -1,0 +1,50 @@
+﻿@model List<Day1.Models.Student>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<div class="container mt-4">
+
+    <h1 class="text-center mb-4">Student List</h1>
+
+    <div class="row">
+
+        @foreach (var student in Model)
+        {
+            <div class="col-md-4 mb-4">
+
+                <div class="card shadow">
+
+                    <img src="@student.Image"
+                         class="card-img-top"
+                         alt="@student.Name"
+                         style="height:250px; object-fit:cover;" />
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            @student.Name
+                        </h5>
+
+                        <p class="card-text">
+                            Address: @student.Address
+                        </p>
+
+                        <a asp-controller="Student"
+                           asp-action="Details"
+                           asp-route-id="@student.Id"
+                           class="btn btn-primary">
+                            Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>

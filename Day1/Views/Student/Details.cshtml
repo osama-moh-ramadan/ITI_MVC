@@ -1,0 +1,58 @@
+﻿@model Day1.Models.Student
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">Student Details</h1>
+
+    <div class="card shadow" style="max-width: 600px;">
+
+        <div class="row g-0">
+
+            <div class="col-md-5">
+
+                <img src="@Model.Image"
+                     class="img-fluid rounded-start"
+                     alt="@Model.Name"
+                     style="height:100%; object-fit:cover;" />
+
+            </div>
+
+            <div class="col-md-7">
+
+                <div class="card-body">
+
+                    <h3 class="card-title">
+                        @Model.Name
+                    </h3>
+
+                    <p class="card-text">
+                        <strong>Id:</strong> @Model.Id
+                    </p>
+
+                    <p class="card-text">
+                        <strong>Name:</strong> @Model.Name
+                    </p>
+
+                    <p class="card-text">
+                        <strong>Address:</strong> @Model.Address
+                    </p>
+
+                    <a asp-controller="Student"
+                       asp-action="Index"
+                       class="btn btn-secondary">
+                        Back to Students
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

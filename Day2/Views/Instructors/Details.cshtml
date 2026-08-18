@@ -1,0 +1,26 @@
+﻿@page
+@model Day2.Models.Instructor
+
+<h2>Instructor Details: @Model.Name</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">Name</dt>
+    <dd class="col-sm-10">@Model.Name</dd>
+
+    <dt class="col-sm-2">Address</dt>
+    <dd class="col-sm-10">@Model.Address</dd>
+
+    <dt class="col-sm-2">Salary</dt>
+    <dd class="col-sm-10">@Model.Salary</dd>
+
+    <dt class="col-sm-2">Hiring Date</dt>
+    <dd class="col-sm-10">@Model.HireDate?.ToShortDateString()</dd>
+
+    <dt class="col-sm-2">Dep</dt>
+    <dd class="col-sm-10">@Model.Department?.Name</dd>
+
+    <dt class="col-sm-2">Manager</dt>
+    <dd class="col-sm-10">@(Model.Manager?.Name ?? "I cannot find it")</dd>
+</dl>
+
+<a asp-action="Index" asp-controller="Departments">Back to Deps</a>

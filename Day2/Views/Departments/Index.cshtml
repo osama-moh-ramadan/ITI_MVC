@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Day2.Models.Department>
+
+<h2>All Departments</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Manager Name</th>
+                <th>Procedures</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dept in Model)
+            {
+                <tr>
+                    <td>@dept.Name</td>
+                    <td>@dept.Address</td>
+                    <td>@dept.ManagerName</td>
+                    <td>
+                        <a asp-action="InstructorsInDepartment" asp-route-id="@dept.Id" class="btn btn-info">
+                            View Instructors
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="alert alert-warning">No departments found</p>
+}
